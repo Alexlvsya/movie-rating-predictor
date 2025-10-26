@@ -49,6 +49,8 @@ data/*.csv
 *.pkl
 *.pickle
 
+!data/top_people_mapping.json
+
 # Model files
 models/*.pkl
 models/*.joblib
@@ -65,3 +67,4 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
