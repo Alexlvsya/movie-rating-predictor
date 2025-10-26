@@ -192,7 +192,7 @@ COUNTRIES = {
 
 # ---------- STREAMLIT PAGE ---------- #
 
-st.title("🎬 Movie Revenue Predictor")
+st.title(" Movie Profit Predictor")
 
 st.write("Enter the movie details below to predict its **estimated revenue**:")
 
@@ -266,7 +266,7 @@ if st.button("Predict Revenue"):
 
         # Make prediction
         predicted_revenue = lr_model.predict(input_data)[0]
-        st.metric("🎯 Predicted Movie Revenue", f"${predicted_revenue:,.2f}M")
+        st.metric("🎯 Predicted Movie Profit", f"${predicted_revenue:,.2f}")
 
     except Exception as e:
         st.error(f"Error during prediction: {e}")
