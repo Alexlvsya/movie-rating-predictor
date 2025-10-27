@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image 
+from pathlib import Path
 st.write("""
          # TMDb Integration - Financial Data Analysis
 
@@ -39,8 +40,15 @@ TMDb Data Coverage:
 """)
 
 #image 
-image8_path = "Images/output8.png"
-image8 = Image.open(image8_path)
+image8_path = Path(__file__).resolve().parents[1] / "Images" / "output8.png"
+
+st.write("Looking for image:", image8_path)  # 👈 solo para depurar
+
+if not image8_path.exists():
+    st.error(f"Image not found: {image8_path}")
+else:
+    image8 = Image.open(image8_path)
+    st.image(image8, caption="Regional and Language Distribution Analysis")
 st.image(image8, caption="Regional and Language Distribution Analysis", use_container_width=True)
 st.write("""
          
@@ -68,8 +76,15 @@ st.write("""
          
 ## Budget Analysis
          """)
-image9_path = "Images/output9.png"
-image9 = Image.open(image9_path)
+image9_path = Path(__file__).resolve().parents[1] / "Images" / "output9.png"
+
+st.write("Looking for image:", image9_path)  # 👈 solo para depurar
+
+if not image9_path.exists():
+    st.error(f"Image not found: {image9_path}")
+else:
+    image9 = Image.open(image9_path)
+    st.image(image9, caption="Budget Distribution Analysis")
 st.image(image9, caption="Budget Distribution Analysis", use_container_width=True)
 
 st.write("""
