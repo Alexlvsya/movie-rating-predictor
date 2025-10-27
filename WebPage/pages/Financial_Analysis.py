@@ -42,7 +42,7 @@ TMDb Data Coverage:
 #image 
 image8_path = Path(__file__).resolve().parents[1] / "Images" / "output8.png"
 
-st.write("Looking for image:", image8_path)  # 👈 solo para depurar
+
 
 if not image8_path.exists():
     st.error(f"Image not found: {image8_path}")
@@ -78,7 +78,6 @@ st.write("""
          """)
 image9_path = Path(__file__).resolve().parents[1] / "Images" / "output9.png"
 
-st.write("Looking for image:", image9_path)  # 👈 solo para depurar
 
 if not image9_path.exists():
     st.error(f"Image not found: {image9_path}")
@@ -93,7 +92,7 @@ st.write("""
          """)
 image10_path = Path(__file__).resolve().parents[1] / "Images" / "output10.png"
 
-st.write("Looking for image:", image9_path)  # 👈 solo para depurar
+
 
 if not image10_path.exists():
     st.error(f"Image not found: {image10_path}")
@@ -103,7 +102,7 @@ else:
 
 image11_path = Path(__file__).resolve().parents[1] / "Images" / "output11.png"
 
-st.write("Looking for image:", image11_path)  # 👈 solo para depurar
+
 
 if not image11_path.exists():
     st.error(f"Image not found: {image11_path}")
