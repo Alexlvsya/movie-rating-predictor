@@ -284,3 +284,4 @@ if st.button("Predict Revenue"):
 
     except Exception as e:
         st.error(f"Error during prediction: {e}")
+#prueba 
