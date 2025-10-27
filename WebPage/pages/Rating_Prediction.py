@@ -73,8 +73,22 @@ else:
     st.success("Model loaded successfully!")
 
 # Load feature configuration
-with open('../data/feature_info.json', 'r') as f:
-    feature_info = json.load(f)
+# Carpeta raíz del proyecto
+root_dir = Path(__file__).resolve().parents[2]  # sube desde WebPage/pages/
+
+# Ruta absoluta al archivo feature_info.json
+feature_info_path = root_dir / "data" / "feature_info.json"
+
+st.write("Looking for feature_info file:", feature_info_path)  # útil para depurar
+
+if not feature_info_path.exists():
+    st.error(f"Feature info file not found: {feature_info_path}")
+else:
+    with open(feature_info_path, "r", encoding="utf-8") as f:
+        feature_info = json.load(f)
+
+# Ahora puedes usar feature_info
+feature_columns = feature_info['feature_columns']
 
 feature_columns = feature_info['feature_columns']
 target_variable = feature_info['target_variable']
