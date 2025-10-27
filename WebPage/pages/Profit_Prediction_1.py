@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import json
+from pathlib import Path
 
 # ---------- MAPPINGS ---------- #
 
@@ -220,12 +221,25 @@ is_adult = st.checkbox("Is this an adult movie?")
 if st.button("Predict Revenue"):
     try:
         # Load model
-        model_path = "../models/profit_prediction_model.pkl"  # you can change this name later
-        lr_model = joblib.load(model_path)
+        # Ruta base del proyecto (sube dos niveles desde /WebPage/pages/)
+        base_path = Path(__file__).resolve().parents[2]
 
-        # Load feature configuration
-        with open("../models/profit_prediction_metadata.json", "r") as f:
-            feature_info = json.load(f)
+        # Archivos del modelo
+        model_path = base_path / "models" / "profit_prediction_model.pkl"
+        metadata_path = base_path / "models" / "profit_prediction_metadata.json"
+
+        # Cargar modelo
+        if not model_path.exists():
+            st.error(f"Model file not found: {model_path}")
+        else:
+            lr_model = joblib.load(model_path)
+
+        # Cargar metadata
+        if not metadata_path.exists():
+            st.error(f"Metadata file not found: {metadata_path}")
+        else:
+            with open(metadata_path, "r") as f:
+                feature_info = json.load(f)
 
         feature_columns = feature_info["feature_columns"]
 
@@ -266,7 +280,7 @@ if st.button("Predict Revenue"):
 
         # Make prediction
         predicted_revenue = lr_model.predict(input_data)[0]
-        st.metric("🎯 Predicted Movie Profit", f"${predicted_revenue:,.2f}")
+        st.metric(" Predicted Movie Profit", f"${predicted_revenue:,.2f}")
 
     except Exception as e:
         st.error(f"Error during prediction: {e}")

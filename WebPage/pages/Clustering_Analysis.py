@@ -2,7 +2,7 @@ import streamlit as st
 #esto es una prueba 
 st.set_page_config(page_title="Go to Movie Rating Predictor 🎬", page_icon="🎥", layout="centered")
 
-st.title("🎬 Movie Rating Predictor App")
+st.title(" Movie Rating Predictor App")
 st.write("Click below to open the deployed version of the app:")
 
 # Create a button-like link
@@ -23,7 +23,7 @@ st.markdown(
     }
     </style>
     <a href="https://movie-rating-predictor-njxxxjsvn2uvhy7nkphw9o.streamlit.app" 
-       target="_blank" class="link-button">🚀 Open App</a>
+       target="_blank" class="link-button"> Open App</a>
     """,
     unsafe_allow_html=True
 )
