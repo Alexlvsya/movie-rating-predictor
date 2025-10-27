@@ -1,5 +1,5 @@
 import streamlit as st
-
+#esto es una prueba 
 st.set_page_config(page_title="Go to Movie Rating Predictor 🎬", page_icon="🎥", layout="centered")
 
 st.title("🎬 Movie Rating Predictor App")
