@@ -58,9 +58,19 @@ selected_genres = st.multiselect("Select Genre(s)", genre_features)
 selected_genre_features = [f"genre_{g}" for g in selected_genres]
 # --------Linear Regresion ------- # 
 
-# Load trained model
-model_path = '../models/linear_regression_model.pkl'
-lr_model = joblib.load(model_path)
+# Carpeta raíz del proyecto
+root_dir = Path(__file__).resolve().parents[2]  # sube desde WebPage/pages/
+
+# Ruta absoluta al modelo
+model_path = root_dir / "models" / "linear_regression_model.pkl"
+
+st.write("Looking for model file:", model_path)  # útil para depurar
+
+if not model_path.exists():
+    st.error(f"Model file not found: {model_path}")
+else:
+    lr_model = joblib.load(model_path)
+    st.success("Model loaded successfully!")
 
 # Load feature configuration
 with open('../data/feature_info.json', 'r') as f:
