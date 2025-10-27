@@ -6,8 +6,20 @@ import pandas as pd
 
 st.title('Linear Regression Model')
 #open data
-with open('../data/top_people_mapping.json', 'r') as f:
-    people_mapping = json.load(f)
+from pathlib import Path
+
+
+
+# Ruta absoluta: sube dos niveles desde el script actual (WebPage/pages/)
+file_path = Path(__file__).resolve().parents[2] / "data" / "top_people_mapping.json"
+
+st.write("Looking for file:", file_path)  # 👈 útil para depurar
+
+if not file_path.exists():
+    st.error(f"File not found: {file_path}")
+else:
+    with open(file_path, "r") as f:
+        people_mapping = json.load(f)
 
 #  name <----> code mapping
 def build_options(category):

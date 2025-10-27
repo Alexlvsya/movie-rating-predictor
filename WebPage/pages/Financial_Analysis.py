@@ -88,7 +88,7 @@ st.image(image11, caption="(Budget & Revenue) vs Ratings", use_container_width=T
 # =====================================
 # 🎬 Highest Budget Movies (Sample)
 # =====================================
-st.header("🎬 Highest Budget Movies")
+st.header(" Highest Budget Movies")
 
 # Create the DataFrame
 data = {
@@ -131,7 +131,7 @@ release year, production cost, box office revenue, and IMDb average rating.
 # =====================================
 # 💰 Top 10 Highest Revenue Movies
 # =====================================
-st.header("💰 Top 10 Highest Revenue Movies")
+st.header(" Top 10 Highest Revenue Movies")
 
 # Create the DataFrame
 data = {
