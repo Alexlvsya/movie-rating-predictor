@@ -49,7 +49,7 @@ if not image8_path.exists():
 else:
     image8 = Image.open(image8_path)
     st.image(image8, caption="Regional and Language Distribution Analysis")
-st.image(image8, caption="Regional and Language Distribution Analysis", use_container_width=True)
+
 st.write("""
          
 ## Insights from Financial Analysis:
@@ -85,19 +85,31 @@ if not image9_path.exists():
 else:
     image9 = Image.open(image9_path)
     st.image(image9, caption="Budget Distribution Analysis")
-st.image(image9, caption="Budget Distribution Analysis", use_container_width=True)
+
 
 st.write("""
          
 ## Relation Between Financial Data and Ratings 
          """)
-image10_path = "Images/output10.png"
-image10 = Image.open(image10_path)
-st.image(image10, caption="Financial Data vs Ratings", use_container_width=True)
+image10_path = Path(__file__).resolve().parents[1] / "Images" / "output10.png"
 
-image11_path = "Images/output11.png"
-image11 = Image.open(image11_path)
-st.image(image11, caption="(Budget & Revenue) vs Ratings", use_container_width=True)
+st.write("Looking for image:", image9_path)  # 👈 solo para depurar
+
+if not image10_path.exists():
+    st.error(f"Image not found: {image10_path}")
+else:
+    image10 = Image.open(image10_path)
+    st.image(image10, caption="Budget vs Ratings", use_container_width=True)
+
+image11_path = Path(__file__).resolve().parents[1] / "Images" / "output11.png"
+
+st.write("Looking for image:", image11_path)  # 👈 solo para depurar
+
+if not image11_path.exists():
+    st.error(f"Image not found: {image11_path}")
+else:
+    image11 = Image.open(image11_path)
+    st.image(image11, caption="Revenue vs Ratings", use_container_width=True)
 
 
 # =====================================
