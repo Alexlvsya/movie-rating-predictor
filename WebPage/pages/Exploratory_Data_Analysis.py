@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from pathlib import Path
 
 # =====================================
 #  MOVIE RATING PREDICTION PROJECT
@@ -65,8 +66,15 @@ st.markdown("""
 5.  Crime — 17,066 movies (avg rating: 5.9)
 """)
 
-image1 = Image.open("Images/output1.png")
-st.image(image1, caption="Comprehensive Genre Analysis", use_container_width=True)
+image1_path = Path(__file__).resolve().parents[1] / "Images" / "output1.png"
+
+
+
+if not image1_path.exists():
+    st.error(f"Image not found: {image1_path}")
+else:
+    image1 = Image.open(image1_path)
+    st.image(image1, caption="Comprensive Genre Analysis", use_container_width=True)
 
 # =====================================
 #  DIRECTOR ANALYSIS
@@ -78,8 +86,13 @@ st.markdown("""
  Created name mapping for **14,745,597 people**  
 """)
 
-image2 = Image.open("Images/output2.png")
-st.image(image2, caption="Director Performance Analysis", use_container_width=True)
+image2_path = Path(__file__).resolve().parents[1] / "Images" / "output2.png"
+
+if not image2_path.exists():
+    st.error(f"Image not found: {image2_path}")
+else:
+    image2 = Image.open(image2_path)
+    st.image(image2, caption="Director Performance Analysis", use_container_width=True)
 
 st.markdown("###  Top 5 “Guarantee” Directors")
 st.markdown("""
@@ -100,9 +113,13 @@ st.markdown("""
 # =====================================
 st.header(" Creative Insights — Runtime, Age & Voting Patterns")
 
-image3 = Image.open("Images/output3.png")
-st.image(image3, caption="Creative Insights", use_container_width=True)
+image3_path = Path(__file__).resolve().parents[1] / "Images" / "output3.png"
 
+if not image3_path.exists():
+    st.error(f"Image not found: {image3_path}")
+else:
+    image3 = Image.open(image3_path)
+    st.image(image3, caption="Creative Insights", use_container_width=True)
 st.markdown("""
 ####  Runtime Insights
 - Optimal runtime category: **Epic (>150 min)**  
@@ -139,8 +156,13 @@ st.markdown("""
 #  FEATURE IMPORTANCE
 # =====================================
 st.header(" Feature Importance Analysis — What Drives Ratings?")
-image4 = Image.open("Images/output4.png")
-st.image(image4, caption="Feature Importance Analysis", use_container_width=True)
+image4_path = Path(__file__).resolve().parents[1] / "Images" / "output4.png"
+
+if not image4_path.exists():
+    st.error(f"Image not found: {image4_path}")
+else:
+    image4 = Image.open(image4_path)
+    st.image(image4, caption="Feature Importance Analysis", use_container_width=True)
 
 st.markdown("""
 ####  Statistically Significant Features (p < 0.05)
@@ -177,8 +199,13 @@ This suggests moderate predictability and a complex rating landscape.
 # =====================================
 st.header(" Writer/Director Analysis — The Auteurs")
 
-image5 = Image.open("Images/output5.png")
-st.image(image5, caption="Writer/Director Analysis", use_container_width=True)
+image5_path = Path(__file__).resolve().parents[1] / "Images" / "output5.png"
+
+if not image5_path.exists():
+    st.error(f"Image not found: {image5_path}")
+else:
+    image5 = Image.open(image5_path)
+    st.image(image5, caption="Writer/Director Analysis", use_container_width=True)
 
 st.markdown("""
 ####  Detailed Statistics
@@ -199,5 +226,10 @@ st.markdown("""
 # =====================================
 st.header(" Regional & Language Distribution Analysis")
 
-image6 = Image.open("Images/output6.png")
-st.image(image6, caption="Regional and Language Distribution Analysis", use_container_width=True)
+image6_path = Path(__file__).resolve().parents[1] / "Images" / "output6.png"
+
+if not image5_path.exists():
+    st.error(f"Image not found: {image6_path}")
+else:
+    image6 = Image.open(image6_path)
+    st.image(image6, caption="Regional & Language Distribution Analysis", use_container_width=True)
